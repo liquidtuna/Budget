@@ -3,7 +3,6 @@ import IncomePanel from '../../components/IncomePanel/IncomePanel';
 import CatCards from '../CatCards/CatCards';
 import classes from '../CatCards/CatCards.css';
 import JonTabs from '../JonTabs/JonTabs';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.less';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
@@ -437,7 +436,7 @@ class Budget extends Component {
             return (
 
                 <div styles={{ display: 'flex' }} label={month.abbr} key={month.index} >
-                    <IncomePanel incomes={this.state.incomes} />
+                    <IncomePanel incomes={this.state.incomes} month={month}/>
                     <div className={classes.CatCards}>
                         {this.renderCats(month)}
                     </div>
@@ -467,23 +466,24 @@ class Budget extends Component {
 
         return (
             <div>
-       <table >
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-</table>
+
+                <table >
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Age</th>
+                    </tr>
+                    <tr>
+                        <td>Jill</td>
+                        <td>Smith</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>Eve</td>
+                        <td>Jackson</td>
+                        <td>94</td>
+                    </tr>
+                </table>
                 <ReactTable
                     filterable={false}
                     data={bills}
@@ -533,36 +533,23 @@ class Budget extends Component {
 
         return (
             <div>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-month-tab" data-toggle="tab" href="#nav-month" role="tab" aria-controls="nav-month" aria-selected="true">Monthly</a>
+                        <a class="nav-item nav-link" id="nav-recap-tab" data-toggle="tab" href="#nav-recap" role="tab" aria-controls="nav-recap" aria-selected="false">Recap</a>
+                        <a class="nav-item nav-link" id="nav-savings-tab" data-toggle="tab" href="#nav-savings" role="tab" aria-controls="nav-savings" aria-selected="false">Savings</a>
+                        <a class="nav-item nav-link" id="nav-loans-tab" data-toggle="tab" href="#nav-loans" role="tab" aria-controls="nav-loans" aria-selected="false">Loans</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-month" role="tabpanel" aria-labelledby="nav-month-tab">   <JonTabs>
+                        {this.renderMonths()}
+                    </JonTabs></div>
+                    <div class="tab-pane fade" id="nav-recap" role="tabpanel" aria-labelledby="nav-recap-tab"> {this.renderRecap()}</div>
+                    <div class="tab-pane fade" id="nav-savings" role="tabpanel" aria-labelledby="nav-savings-tab"> <h2>Savings</h2>          {/* {this.renderSavings()} */}</div>
+                    <div class="tab-pane fade" id="nav-loans" role="tabpanel" aria-labelledby="nav-loan-tab"> <h2>Loans</h2> {/* {this.renderLoans()} */} </div>
+                </div>
 
-                <Tabs  defaultIndex={1}>
-                    <TabList >
-                        <Tab>Monthly</Tab>
-                        <Tab>Recap</Tab>
-                        <Tab>Savings</Tab>
-                        <Tab>Loans</Tab>
-                    </TabList>
-
-                    <TabPanel>
-                        <JonTabs>
-                            {this.renderMonths()}
-                        </JonTabs>
-                    </TabPanel>
-                    <TabPanel>
-                        <h2>Any content 2</h2>
-                        {this.renderRecap()}
-
-                    </TabPanel>
-                    <TabPanel>
-                        <h2>Any content 2</h2>
-                        {/* {this.renderSavings()} */}
-
-                    </TabPanel>
-                    <TabPanel>
-                        <h2>Any content 2</h2>
-                        {/* {this.renderLoans()} */}
-
-                    </TabPanel>
-                </Tabs>
 
             </div>
 

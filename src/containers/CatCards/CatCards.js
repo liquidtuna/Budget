@@ -88,12 +88,13 @@ class CatCards extends Component {
                 </div>
 
                 <div>
-                    Budget : {billTotal}   <button
+                    Budget : {billTotal}   <button className={'btn-info'}
                         onClick={() => this.onAddBill()}
                     >
                         <i /> add Bill
                             </button>
-                    <button
+                            &nbsp;&nbsp;
+                    <button className={'btn-info'}
                         onClick={() => this.onAddBillMonth()}
                     >
                         <i /> add Bill(local)
