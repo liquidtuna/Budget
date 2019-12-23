@@ -1,0 +1,19 @@
+.CatCards {
+
+    display:flex ;
+    flex-wrap: wrap;
+  }
+  .CatCard {
+    border: solid black;
+    display: grid;
+    
+    width: 35%;
+    margin: 10px;
+  }
+  .CatBills {
+    background-color: rgba(0, 0,0,0.1);
+  }
+  .CatIncomes {
+    padding: 10px;
+  }
+  

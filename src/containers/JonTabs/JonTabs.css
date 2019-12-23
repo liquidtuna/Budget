@@ -1,0 +1,14 @@
+ .TabList {
+    border-bottom: 1px solid #ccc;
+    padding-left: 25px;
+    display: flex;
+    list-style:none
+  }
+.TabContent {
+    display: block;
+  }
+
+    
+  .Tabs{
+      display: block;
+  } 
